@@ -1,0 +1,105 @@
+extends ../layout/layout
+
+block content
+  style.
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    .header {
+      background-color: #2F3C7E;
+      color: #FBEAEB;
+      padding: 15px;
+      border-radius: 5px;
+      margin-bottom: 20px;
+      margin-top: 10px;
+    }
+    .table-container {
+      overflow-x: auto; /* Enables horizontal scrolling */
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 25px;
+      min-width: 900px; /* Ensures the table is wide enough to scroll */
+    }
+    th, td {
+      border: 1px solid #ddd;
+      padding: 12px;
+      text-align: left;
+    }
+    th {
+      background-color: #f2f2f2;
+    }
+    .btn {
+      padding: 10px 20px;
+      border-radius: 3px;
+      cursor: pointer;
+      margin-right: 5px;
+      font-size: 15px;
+      text-decoration: none;
+    }
+    .btn-primary {
+      background-color: #007bff;
+      color: white;
+    }
+    .bttt {
+      margin-top: 5px;
+      margin-bottom: 10px;
+      text-align: right;
+    }
+    .bttt a {
+      color: white;
+      background: #2F3C7E;
+      padding: 10px 20px;
+      border-radius: 3px;
+      text-decoration: none;
+    }
+    .btn-container {
+      text-align: center;
+    }
+    .btn-container a {
+      color: white;
+      background: #2F3C7E;
+      padding: 10px 20px;
+      border-radius: 3px;
+      text-decoration: none;
+    }
+    .tittle {
+      text-align: center;
+    }
+
+
+  .header
+    h2 REPAIR STATUS
+
+  
+      
+  
+  table
+    thead
+      tr
+        th.tittle S.NO
+        th.tittle ASSET ID
+        th.tittle NAME
+        th.tittle STATUS
+        th.tittle CREATEAT
+        th.tittle ACTION
+    
+    tbody
+      each datum, index in data
+        tr
+          td #{index + 1}
+          td #{datum.assetId}
+          td #{datum.Asset.name}
+          td #{datum.status}
+          td #{datum.createdAt}
+          td.btn-container
+            
+            a.btn.btn-primary(href=`/repair/view/${datum.id}`) View
+            
+            
+
+        
+          

@@ -1,0 +1,110 @@
+extends ../layout/layout
+
+block content
+  style.
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    .header {
+      background-color: #2F3C7E;
+      color: #FBEAEB;
+      padding: 15px;
+      border-radius: 5px;
+      margin-bottom: 20px;
+      margin-top: 10px;
+    }
+    .table-container {
+      overflow-x: auto; 
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 25px;
+      min-width: 900px; /* Ensures the table is wide enough to scroll */
+    }
+    th, td {
+      border: 1px solid #ddd;
+      padding: 12px;
+      text-align: left;
+    }
+    th {
+      background-color: #f2f2f2;
+    }
+    .btn {
+      padding: 10px 20px;
+      border-radius: 3px;
+      cursor: pointer;
+      margin-right: 5px;
+      font-size: 15px;
+      text-decoration: none;
+    }
+    .btn-primary {
+      background-color: #007bff;
+      color: white;
+    }
+    .bttt {
+      margin-top: 5px;
+      margin-bottom: 10px;
+      text-align: right;
+    }
+    .bttt a {
+      color: white;
+      background: #2F3C7E;
+      padding: 10px 20px;
+      border-radius: 3px;
+      text-decoration: none;
+    }
+    .btn-container {
+      text-align: center;
+    }
+    .btn-container a {
+      color: white;
+      background: #2F3C7E;
+      padding: 10px 20px;
+      border-radius: 3px;
+      text-decoration: none;
+    }
+    .tittle {
+      text-align: center;
+    }
+
+    .bttt a {
+      color: white;
+      background: #2F3C7E;
+      padding: 10px 20px;
+      border-radius: 3px;
+      text-decoration: none;
+    }
+
+
+  .header
+    h2 ASSET LIST
+
+  .bttt
+    a.btn.btn-primary(href="/asset/add") Add
+
+  table
+    thead
+      tr
+        th.tittle S.No
+        th.tittle Asset Id
+        th.tittle Name
+        th.tittle Model
+        th.tittle Category
+        th.tittle Branch
+        th.tittle ACTION
+    tbody
+      each datum, index in data
+        tr
+          td #{index + 1}
+          td #{datum.assetId}
+          td #{datum.name}
+          td #{datum.model}
+          td #{datum.AssetCategory.categoryName}
+          td #{datum.branch}
+          td.btn-container
+            a.btn(href=`/asset/edit/${datum.id}`) Edit
+            a.btn(href=`/asset/view/${datum.id}`) View
+            a.btn(href=`/asset/delete/${datum.id}`) Delete

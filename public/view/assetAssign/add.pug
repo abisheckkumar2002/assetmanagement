@@ -1,0 +1,104 @@
+extends ../layout/layout
+
+block content
+
+  style.
+    body {
+      font-family: Arial, sans-serif;
+      padding: 0;
+    }
+    .header {
+      background-color: #007bff;
+      color: white;
+      padding: 15px;
+      border-radius: 5px;
+      margin-bottom: 20px;
+      margin-top: 10px;
+    }
+    .container {
+      max-width: 100%;
+      padding: 15px;
+      border: 1px solid #ddd;
+      overflow-y: auto;
+    }
+    .form {
+      width: 80%;
+    }
+    .form-group {
+      margin-bottom: 10px;
+    }
+    .form-group label {
+      display: block;
+      margin-bottom: 5px;
+    }
+    .form-group input {
+      width: 50%;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 3px;
+      font-size: 16px;
+    }
+    .form-group select {
+      width: 52%;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 3px;
+      font-size: 16px;
+    }
+    .btn {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 3px;
+      cursor: pointer;
+      margin-right: 5px;
+    }
+    .btn-primary {
+      background-color: #007bff;
+      color: white;
+    }
+    .btn-secondary {
+      background-color: #6c757d;
+      color: white;
+    }
+    .btn-container {
+      text-align: right;
+    }
+    .bttt {
+      margin-top: 10px;
+      margin-bottom: 30px;
+      text-align: left;
+    }
+
+  .bttt
+    a.btn.btn-primary(href="/users") Back
+
+  .header
+    h2 Assign Asset
+
+  .container
+    form(action="/assetStatus/" method="post")
+
+      
+
+      .form-group
+        label(for="employeeId") Employee:
+        select#branch(name="employeeId" required)
+          option(value="") -- Select Branch -- 
+          if employee && employee.length > 0 
+            each item in employee
+              option(value=item.id) #{item.firstName}
+          else
+            option(value="") No employee available
+      .form-group
+        label(for="assetId") Asset:
+        select#branch(name="assetId" required)
+          option(value="") -- Select Asset -- 
+          if asset && asset.length > 0 
+            each item in asset
+              option(value=item.id) #{item.name}
+          else
+            option(value="") No Asset available
+      
+
+      .btn-container
+        button.btn.btn-primary(type="submit") Add

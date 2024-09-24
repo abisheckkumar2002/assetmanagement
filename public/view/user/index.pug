@@ -1,0 +1,153 @@
+extends ../layout/layout
+
+block content
+  style.
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    .header {
+      background-color: #2F3C7E;
+      color: #FBEAEB;
+      padding: 15px;
+      border-radius: 5px;
+      margin-bottom: 20px;
+      margin-top: 10px;
+    }
+    .table-container {
+      overflow-x: auto; /* Enables horizontal scrolling */
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+      min-width: 900px; /* Ensures the table is wide enough to scroll */
+    }
+    th, td {
+      border: 1px solid #ddd;
+      padding: 12px;
+      text-align: left;
+    }
+    th {
+      background-color: #f2f2f2;
+      color: #333;
+      text-transform: uppercase;
+    }
+    td {
+      background-color: #fafafa;
+    }
+    .btn {
+      padding: 10px 15px;
+      border-radius: 4px;
+      font-size: 14px;
+      text-decoration: none;
+      cursor: pointer;
+      display: inline-block;
+      margin: 0 5px;
+      border: none;
+    }
+    .btn-primary {
+      background-color: #007bff;
+      color: white;
+      border: none;
+      transition: background-color 0.3s ease;
+    }
+    .btn-primary:hover {
+      background-color: #0056b3;
+    }
+    .btn-danger {
+      background-color: #dc3545;
+      color: white;
+      border: none;
+      transition: background-color 0.3s ease;
+    }
+    .btn-danger:hover {
+      background-color: #c82333;
+    }
+    .btn-secondary {
+      background-color: #6c757d;
+      color: white;
+      border: none;
+      transition: background-color 0.3s ease;
+    }
+    .btn-secondary:hover {
+      background-color: #5a6268;
+    }
+    .bttt {
+      margin-top: 5px;
+      margin-bottom: 10px;
+      text-align: right;
+    }
+    .bttt a {
+      color: white;
+      background-color: #2F3C7E;
+      padding: 10px 20px;
+      border-radius: 4px;
+      text-decoration: none;
+      font-size: 15px;
+      transition: background-color 0.3s ease;
+    }
+    .bttt a:hover {
+      background-color: #4e5aa7;
+    }
+    .btn-container {
+      text-align: center;
+    }
+    .btn-container form {
+      display: inline-block;
+    }
+    .btn-container a, .btn-container button {
+      margin-bottom: 5px;
+    }
+    .tittle {
+      text-align: center;
+    }
+
+    .btn-primary {
+      background-color: #007bff;
+      color: white;
+    }
+
+    .btn-container a {
+      color: white;
+      background: #2F3C7E;
+      padding: 10px 20px;
+      border-radius: 3px;
+      text-decoration: none;
+    }
+
+  .header
+    h2 EMPLOYEE LIST
+
+  .bttt
+    a.btn-primary(href="/users/add") Add
+  
+  .table-container
+    table
+      thead
+        tr
+          th.tittle S.NO
+          th.tittle EMP ID
+          th.tittle FirstName
+          th.tittle LastName
+          th.tittle PHONE NO
+          th.tittle Email
+          th.tittle ACTION
+      tbody
+        each datum, index in data
+          tr
+            td #{index + 1}
+            td #{datum.EmpId}
+            td #{datum.firstName}
+            td #{datum.lastName}
+            td #{datum.phoneNo}
+            td #{datum.email}
+            td.btn-container
+              a.btn(href=`/users/edit/${datum.id}`) Edit
+              a.btn(href=`/users/view/${datum.id}`) View
+              
+             
+              form( action=`/users/${datum.id}?_method=DELETE`,method="DELETE")
+                
+                a.btn(type="submit", onclick="return confirm('Are you sure you want to delete this user?');") Delete

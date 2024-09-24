@@ -1,0 +1,84 @@
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>KT TELMATIC</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        display: flex;
+        height: 100vh;
+        overflow: hidden;
+      }
+      .sidebar {
+        width: 200px; /* Increased from 200px to 300px */
+        background-color: #2F3C7E;
+        color: white;
+        margin: 1%;
+        box-shadow: 1px 1px solid black;
+        height: 100%;
+        border-radius: 1%;
+      }
+      .sidebar ul {
+        list-style-type: none;
+        padding: 0;
+        width: 100%;
+        margin-top: 10%;
+        text-align: center;
+      }
+      .sidebar li {
+        padding: 10px 0;
+      }
+      .sidebar a {
+        color: white;
+        text-decoration: none;
+        display: block;
+        padding: 10px;
+      }
+      .sidebar a:hover {
+        background-color: white;
+        color: black;
+      }
+      .main-content {
+        flex-grow: 1;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+      }
+      iframe {
+        flex-grow: 1;
+        width: 100%;
+        border: none;
+      }
+      .immgdiv {
+        height: 15%;
+        margin-top: 20px;
+        margin-left: 30%;
+      }
+      .sid {
+        text-align: left;
+        margin-left: 10px;
+        margin-right: 10px;
+        font-family: 'bold';
+        font-size: 15px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="sidebar">
+      <div class="immgdiv"><img src="/logo/logo2.png" alt="logo" width="80" height="80"/></div>
+      <ul>
+        <li class="sid"><a href="/users" target="content-frame" style=" text-decoration: none">EMPLOYEE</a></li>
+        <li class="sid"><a href="/assetcategory" target="content-frame" style=" text-decoration: none">ASSET CATEGORY</a></li>
+        <li class="sid"><a href="/asset" target="content-frame" style=" text-decoration: none">ASSET </a></li>
+        <li class="sid"><a href="/assetStatus" target="content-frame" style=" text-decoration: none">ASSET ISSUE</a></li>
+        <li class="sid"><a href="/assetStatus/assetissue" target="content-frame" style=" text-decoration: none">ASSET STATUS</a></li>
+        <li class="sid"><a href="/repair/" target="content-frame" style=" text-decoration: none">ASSET REPAIR</a></li>
+      </ul>
+    </div>
+    <div class="main-content">
+    </div>
+  </body>
+</html>

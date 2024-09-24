@@ -1,0 +1,155 @@
+extends ../layout/layout
+
+block content
+  style.
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    .header {
+      background-color: #2F3C7E;
+      color: #FBEAEB;
+      padding: 15px;
+      border-radius: 5px;
+      margin-bottom: 20px;
+      margin-top: 10px;
+      display: flex;
+      justify-content: space-between;
+       display: flex;
+      justify-content: space-between; /* Align title and count to opposite corners */
+      align-items: center; /* Vertically center elements */
+    }
+    .table-container {
+      overflow-x: auto; /* Enables horizontal scrolling */
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 25px;
+      min-width: 900px; /* Ensures the table is wide enough to scroll */
+    }
+    th, td {
+      border: 1px solid #ddd;
+      padding: 12px;
+      text-align: left;
+    }
+    .table-container {
+      overflow-x: auto; /* Enables horizontal scrolling */
+    }
+    th {
+      background-color: #f2f2f2;
+    }
+    .btn {
+      padding: 10px 20px;
+      border-radius: 3px;
+      cursor: pointer;
+      margin-right: 5px;
+      font-size: 15px;
+      text-decoration: none;
+    }
+    .btn-primary {
+      background-color: #007bff;
+      color: white;
+    }
+    .bttt {
+      margin-top: 5px;
+      margin-bottom: 10px;
+      text-align: right;
+    }
+    .bttt a {
+      color: white;
+      background: #2F3C7E;
+      padding: 10px 20px;
+      border-radius: 3px;
+      text-decoration: none;
+    }
+    .btn-container {
+      text-align: center;
+    }
+    .btn-container a {
+      color: white;
+      background: #2F3C7E;
+      padding: 10px 20px;
+      border-radius: 3px;
+      text-decoration: none;
+    }
+    .tittle {
+      text-align: center;
+    }
+
+    /* Navbar styles */
+    .navbar-nav {
+      list-style-type: none;
+      padding-left: 0;
+      display: flex; /* Horizontal layout */
+    }
+    .navbar-nav .nav-item {
+      margin-right: 20px;
+    }
+    .nav-link {
+      font-size: 20px;
+      text-decoration: none;
+      color: black;
+    }
+
+    .nav-item.active .nav-link {
+      text-decoration: underline; 
+    }
+
+    .count {
+    font-size: 20px;
+    
+    color: white;
+    padding: 5px 10px;
+    border-radius: 3px;
+    
+    }
+  
+  //- Employee list section
+  .header
+    h2 ASSET HISTORY     
+    .count COUNT - #{data.length} 
+
+  //- Navbar section
+  nav.navbar.navbar-expand-lg.navbar-light.bg-light
+    
+    span.navbar-toggler-icon
+    .collapse.navbar-collapse#navbarNav
+      ul.navbar-nav
+        li.nav-item
+          a.nav-link(href="/assetStatus/assetissue?status=issued") ISSUED
+            
+        li.nav-item
+          a.nav-link(href="/assetStatus/assetissue?status=in-stock") STOCK
+        li.nav-item
+          a.nav-link(href="/assetStatus/assetissue?status=scrapped") SCRAPPED
+        
+        
+
+
+  table
+    thead
+      tr
+        th.tittle S.NO
+        th.tittle ASSET ID
+        th.tittle Name
+        th.tittle MODEL
+        th.tittle STATUS
+        
+    tbody
+    if data.length > 0
+      each datum, index in data
+        tr
+          td #{index + 1}
+          td #{datum.name}
+          td #{datum.assetId}
+          td #{datum.model}
+          td #{datum.status}
+    else
+      tr
+        td(colspan="5") No item in the list
+          
+          
+
+

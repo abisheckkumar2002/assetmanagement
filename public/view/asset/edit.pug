@@ -1,0 +1,121 @@
+extends ../layout/layout
+
+block content
+
+  style.
+    body {
+      font-family: Arial, sans-serif;
+      padding: 0;
+    }
+    .header {
+        background-color: #2F3C7E;
+        color: #FBEAEB;
+        padding: 15px;
+        border-radius: 5px;
+        margin-bottom: 20px;
+        margin-top: 10px;
+     }
+    .container {
+      max-width: 100%;
+      padding: 15px;
+      border: 1px solid #ddd;
+      overflow-y: auto;
+    }
+    .form {
+      width: 80%;
+    }
+    .form-group {
+      margin-bottom: 10px;
+    }
+    .form-group label {
+      display: block;
+      margin-bottom: 5px;
+    }
+    .form-group input {
+      width: 50%;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 3px;
+      font-size: 16px;
+    }
+    .form-group select {
+      width: 52%;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 3px;
+      font-size: 16px;
+    }
+    .btn {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 3px;
+      cursor: pointer;
+      margin-right: 5px;
+    }
+    .btn-primary {
+      background-color: #007bff;
+      color: white;
+    }
+    .btn-secondary {
+      background-color: #6c757d;
+      color: white;
+    }
+    .btn-container {
+      text-align: right;
+    }
+    .bttt {
+      margin-top: 10px;
+      margin-bottom: 30px;
+      text-align: left;
+    }
+
+     .btn-primary {
+        background-color: #2F3C7E; /* Match the header background */
+        color: white;
+     }
+
+     .bttt a {
+        color: white;
+        background: #2F3C7E;
+        padding: 10px 20px;
+        border-radius: 3px;
+        text-decoration: none;
+     }
+  .bttt
+    a.btn.btn-primary(href="/asset") Back
+
+  .header
+    h2 Edit Employee
+
+  .container
+    form(action=`/asset/${dataValues.id}?_method=PUT`, method="POST")
+     
+      .form-group
+        label(for="name") Name:
+        input#firstName(type="text", name="name", value=`${dataValues.name}` required)
+      .form-group
+        label(for="assetId") AssetId:
+        input#lastName(type="text", name="assetId", value=`${dataValues.assetId}`,required)
+      .form-group
+        label(for="model") Model:
+        input#lastName(type="text", name="model",value=`${dataValues.model}`, required)
+
+      .form-group
+        label(for="categoryId") Category:
+        select#branch(name="categoryId" required)
+          option(value="") -- Select Branch -- 
+          if categories && categories.length > 0 
+            each item in categories
+              option(value=item.id) #{item.categoryName}
+          else
+            option(value="") No branches available
+      .form-group
+        label(for="branch") Branch:
+        select#branch(name="branch" required)
+          option(value="") -- Select Branch -- 
+          option(value="Branch1") Branch 1
+          option(value="Branch2") Branch 2
+      
+      
+      .btn-container
+        button.btn.btn-primary(type="submit") Edit

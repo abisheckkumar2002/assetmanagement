@@ -1,0 +1,221 @@
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>KT TELMATIC</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        display: flex;
+        height: 100vh;
+        overflow: hidden;
+      }
+      .sidebar {
+        width: 200px; /* Increased from 200px to 300px */
+        background-color: #2F3C7E;
+        color: white;
+        margin: 1%;
+        box-shadow: 1px 1px solid black;
+        height: 100%;
+        border-radius: 1%;
+      }
+      .sidebar ul {
+        list-style-type: none;
+        padding: 0;
+        width: 100%;
+        margin-top: 10%;
+        text-align: center;
+      }
+      .sidebar li {
+        padding: 10px 0;
+      }
+      .sidebar a {
+        color: white;
+        text-decoration: none;
+        display: block;
+        padding: 10px;
+      }
+      .sidebar a:hover {
+        background-color: white;
+        color: black;
+      }
+      .main-content {
+        flex-grow: 1;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+      }
+      iframe {
+        flex-grow: 1;
+        width: 100%;
+        border: none;
+      }
+      .immgdiv {
+        height: 15%;
+        margin-top: 20px;
+        margin-left: 30%;
+      }
+      .sid {
+        text-align: left;
+        margin-left: 10px;
+        margin-right: 10px;
+        font-family: 'bold';
+        font-size: 15px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="sidebar">
+      <div class="immgdiv"><img src="/logo/logo2.png" alt="logo" width="80" height="80"/></div>
+      <ul>
+        <li class="sid"><a href="/users" target="content-frame" style=" text-decoration: none">EMPLOYEE</a></li>
+        <li class="sid"><a href="/assetcategory" target="content-frame" style=" text-decoration: none">ASSET CATEGORY</a></li>
+        <li class="sid"><a href="/asset" target="content-frame" style=" text-decoration: none">ASSET </a></li>
+        <li class="sid"><a href="/assetStatus" target="content-frame" style=" text-decoration: none">ASSET ISSUE</a></li>
+        <li class="sid"><a href="/assetStatus/assetissue" target="content-frame" style=" text-decoration: none">ASSET STATUS</a></li>
+        <li class="sid"><a href="/repair/" target="content-frame" style=" text-decoration: none">ASSET REPAIR</a></li>
+      </ul>
+    </div>
+    <div class="main-content">
+      <style>
+        body {
+          font-family: Arial, sans-serif;
+          margin: 0;
+          padding: 0;
+        }
+        .header {
+          background-color: #2F3C7E;
+          color: #FBEAEB;
+          padding: 15px;
+          border-radius: 5px;
+          margin-bottom: 20px;
+          margin-top: 10px;
+        }
+        .table-container {
+          overflow-x: auto; /* Enables horizontal scrolling */
+        }
+        table {
+          width: 100%;
+          border-collapse: collapse;
+          margin-top: 20px;
+          min-width: 900px; /* Ensures the table is wide enough to scroll */
+        }
+        th, td {
+          border: 1px solid #ddd;
+          padding: 12px;
+          text-align: left;
+        }
+        th {
+          background-color: #f2f2f2;
+          color: #333;
+          text-transform: uppercase;
+        }
+        td {
+          background-color: #fafafa;
+        }
+        .btn {
+          padding: 10px 15px;
+          border-radius: 4px;
+          font-size: 14px;
+          text-decoration: none;
+          cursor: pointer;
+          display: inline-block;
+          margin: 0 5px;
+          border: none;
+        }
+        .btn-primary {
+          background-color: #007bff;
+          color: white;
+          border: none;
+          transition: background-color 0.3s ease;
+        }
+        .btn-primary:hover {
+          background-color: #0056b3;
+        }
+        .btn-danger {
+          background-color: #dc3545;
+          color: white;
+          border: none;
+          transition: background-color 0.3s ease;
+        }
+        .btn-danger:hover {
+          background-color: #c82333;
+        }
+        .btn-secondary {
+          background-color: #6c757d;
+          color: white;
+          border: none;
+          transition: background-color 0.3s ease;
+        }
+        .btn-secondary:hover {
+          background-color: #5a6268;
+        }
+        .bttt {
+          margin-top: 5px;
+          margin-bottom: 10px;
+          text-align: right;
+        }
+        .bttt a {
+          color: white;
+          background-color: #2F3C7E;
+          padding: 10px 20px;
+          border-radius: 4px;
+          text-decoration: none;
+          font-size: 15px;
+          transition: background-color 0.3s ease;
+        }
+        .bttt a:hover {
+          background-color: #4e5aa7;
+        }
+        .btn-container {
+          text-align: center;
+        }
+        .btn-container form {
+          display: inline-block;
+        }
+        .btn-container a, .btn-container button {
+          margin-bottom: 5px;
+        }
+        .tittle {
+          text-align: center;
+        }
+        
+        .btn-primary {
+          background-color: #007bff;
+          color: white;
+        }
+        
+        .btn-container a {
+          color: white;
+          background: #2F3C7E;
+          padding: 10px 20px;
+          border-radius: 3px;
+          text-decoration: none;
+        }
+        
+      </style>
+      <div class="header">
+        <h2>EMPLOYEE LIST</h2>
+      </div>
+      <div class="bttt"><a class="btn-primary" href="/users/add">Add</a></div>
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th class="tittle">S.NO</th>
+              <th class="tittle">EMP ID</th>
+              <th class="tittle">FirstName</th>
+              <th class="tittle">LastName</th>
+              <th class="tittle">PHONE NO</th>
+              <th class="tittle">Email</th>
+              <th class="tittle">ACTION</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </div>
+  </body>
+</html>
